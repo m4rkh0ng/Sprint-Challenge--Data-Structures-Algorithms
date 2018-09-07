@@ -6,17 +6,30 @@ class BinarySearchTree:
 
   def depth_first_for_each(self, cb):
     current = self.value
-    if not current:
+    if current is None:
       return
+    # start by adding current/root value to arr by calling cb
     cb(current)
-    self.left.depth_first_for_each(cb)
-    self.right.depth_first_for_each(cb)
-    # while self.left:
-
-
+    # traverse left sides and then right sides by calling itself recursively  
+    if self.left != None:
+      self.left.depth_first_for_each(cb)
+    if self.right != None:
+      self.right.depth_first_for_each(cb)
 
   def breadth_first_for_each(self, cb):
-    pass
+    nodes = []
+    nodes.append(self)
+
+    while len(nodes) > 0:
+      # remove and return root/value
+      node = nodes.pop(0)
+      # append that value to the arr by calling cb with that value as x 
+      cb(node.value)
+      #checking left or right, if they exist, add them onto nodes
+      if node.left != None:
+        nodes.append(node.left)
+      if node.right != None:
+        nodes.append(node.right)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
