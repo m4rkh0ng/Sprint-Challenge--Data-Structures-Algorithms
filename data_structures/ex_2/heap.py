@@ -1,6 +1,47 @@
 def heapsort(arr):
- pass 
- 
+  #arr to become heap
+  #heap then to be sorted
+  
+  heapify = Heap()
+  new_arr = []
+
+  for item in arr:
+    heapify.insert(item)
+  while len(heapify.storage) > 0:
+    new_arr.insert(0, heapify.delete())
+  return new_arr
+
+
+  # def swap(arr, i, j):
+  #   temp = arr[i]
+  #   arr[i] = arr[j]
+  #   arr[j] = temp
+
+  # def siftdown(arr, i, size):
+  #   l = 2*i+1
+  #   r = 2*i+2
+  #   largest = i
+  #   if l <= size-1 and arr[l] > arr[i]:
+  #     largest = l
+  #   if r <= size-1 and arr[r] > arr[largest]:
+  #     largest = r
+  #   if largest != i:
+  #     swap(arr, i, largest)
+  #     siftdown(arr, largest, size)
+
+  # def heapify(arr, size):
+  #   p = (size//2)-1
+  #   while p>=0:
+  #     siftdown(arr, p, size)
+  #     p -= 1
+
+  # size = len(arr)
+  # heapify(arr, size)
+  # end = size-1
+  # while(end > 0):
+  #   swap(arr, 0, end)
+  #   siftdown(arr, 0, end)
+  #   end -= 1
 
 class Heap:
   def __init__(self):
